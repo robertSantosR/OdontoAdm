@@ -43,7 +43,7 @@ require_once('../objetos/prochorario.php');
 					if(mysqli_num_rows($resultado) > 0 ){
 						
 						foreach($resultado as $valor){
-							echo "<option value='".$valor['id_Funcionarios']."'>".$valor['Funcionario']."</option>";
+							echo "<option value='".$valor['id_Funcionarios']."'>".ucfirst($valor['Funcionario'])."</option>";
 							
 							
 						}

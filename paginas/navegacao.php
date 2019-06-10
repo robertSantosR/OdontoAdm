@@ -1,7 +1,7 @@
 <?php
-
+ session_start();
   header('Content-Type: text/html; charset=UTF-8');
-    session_start();
+   
 
     if (!isset($_SESSION["user"]) || isset($_GET["sair"])) {
         session_destroy();

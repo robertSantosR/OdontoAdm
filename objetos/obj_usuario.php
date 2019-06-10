@@ -26,7 +26,7 @@ if((isset($_POST["nome"]) && !empty($_POST["nome"])) && (isset($_POST["email"]) 
 	$cep = $_POST["cep"];
 	$end = $_POST["end"];
 	$num = $_POST["num"];
-	$senha = $_POST['senha'];
+	$senha = md5($_POST['senha']);
 	//$dtNasc = $_POST["dtNasc"];
 	
 	$complemento = $_POST["complemento"];

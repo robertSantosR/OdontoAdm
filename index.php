@@ -1,7 +1,7 @@
 <?php
 
 //Inicia a sessao do sistema
-session_start();
+
 
 //valida se o usuario esta logado
 if(isset($_SESSION["user"])){

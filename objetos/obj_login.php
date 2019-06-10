@@ -1,16 +1,18 @@
 <?php  
-
-    //importa o arquino de conexaoo com o banco de dados
-    require_once("obj_conexao_bd.php");
+    session_start();
+    
+    
     //inicializa variavel com vazio
     $menssagem = "";
 
     //verifica se esta defenido o post de email e senha
     if (isset($_POST["email"]) && isset($_POST["senha"])) {
 
+        //importa o arquino de conexaoo com o banco de dados
+        require_once("obj_conexao_bd.php");
         //recupera os valores enviados pelo formulario acessando pelo nome do input
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
+        $email = addslashes($_POST["email"]);
+        $senha = md5(addslashes($_POST["senha"]) );
         //criptografia em md5 da senha recebida do formulário
         //$senhaCriptografada = md5($senha);
         /* 
@@ -43,7 +45,7 @@
         //valida se retornou algum registro
         if (mysqli_num_rows($resultado) > 0) {
             //se o usuario existe, inicio a sessão php
-			 session_start();
+		
             // busca o resultado da execucao e armazeno na sessao
 			
 			 //$campo = mysqli_fetch_assoc($resultado);

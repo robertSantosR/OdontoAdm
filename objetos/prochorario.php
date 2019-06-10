@@ -32,7 +32,7 @@ if(isset($_POST['dentista']) &&  !empty($_POST['dentista']) ){
 		
 			
 			$hora = $_POST['hora'][$i];
-			$sqlInsert = "INSERT INTO tb_agendaDent(id_funcionarios, data,horario ) values ('$dentista','$data','$hora')";
+			$sqlInsert = "INSERT INTO tb_agendaDent(id_funcionarios, data,horario, tp_status) values ('$dentista','$data','$hora', 1)";
 
 			if (mysqli_query($conexao, $sqlInsert))
 			{

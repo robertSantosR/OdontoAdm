@@ -4,6 +4,6 @@
 //$nome = $_SESSION["user"];
 ?>
 
-<h6>Olá, <span class="badge badge-secondary"><?php echo $nome  ?></span></h6>
+<h6>Olá, <span class="badge badge-secondary"><?php echo ucfirst($nome);?></span></h6>
 
 

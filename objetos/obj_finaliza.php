@@ -4,11 +4,11 @@
 		$conexao = AbreConexaoBd();
 		
 		$id = addslashes($_GET['id']);
-		$sql = "DELETE FROM tb_consulta WHERE id_Consulta = $id";
+		$sql = "UPDATE tb_agendadent SET tp_status = 1 WHERE id_agenda = $id" ;
 		
+		echo $sql;
 		 if(mysqli_query($conexao, $sql)){
-			  echo "excluido "; 
-			 header('location: ../paginas/navegacao.php?pagina=consAgenda');
+			 header('location: ../paginas/navegacao.php?pagina=consAgenda&finalizado=ok');
 			
 		 }
 		
