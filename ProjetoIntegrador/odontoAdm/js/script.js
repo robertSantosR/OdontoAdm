@@ -85,13 +85,13 @@ $('#enviar').click(function(){
 		}else{
 			var data = $('#data').val();
 
-             datam =  data.split("-").reverse().join("/");
+            var dataMostra =  data.split("-").reverse().join("/");
 
 			var hora = $('#hora').val();
 
 			var dentistaNome = $('#nomeDen ').find('option:selected').text();
 			var dentista = $('#nomeDen ').val();
-			$('#adicionar tbody').append('<tr class="t"><td><input type="hidden" name="data[]" value="'+data+'">'+datam+'</td>  <td><input type="hidden" name="hora[]" value="'+hora+'">'+hora+'</td><td><input type="hidden" name="dentista[]" value="'+dentista+'">'+dentistaNome+' </td></tr>');
+			$('#adicionar tbody').append('<tr class="t"><td><input type="hidden" name="data[]" value="'+data+'">'+dataMostra+'</td>  <td><input type="hidden" name="hora[]" value="'+hora+'">'+hora+'</td><td><input type="hidden" name="dentista[]" value="'+dentista+'">'+dentistaNome+' </td></tr>');
 		}
 		
 

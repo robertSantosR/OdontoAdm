@@ -45,8 +45,10 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
             <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=consUser"; ?>">Consultar avaliação disponivel</a>
+              <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=perfil_usuario"; ?>">Perfil usuário</a>
           </div>
-        
+
+        </li>
          
   
           
@@ -75,6 +77,9 @@
           include("./home.php");
           break;
 			
+      case "perfil_usuario":
+          include("./perfil_usuario.php");
+          break;
 		default:
           include("./home.php");
           break;

@@ -33,12 +33,12 @@ require '../objetos/obj_relatorio.php';
     <?php foreach($resultado as $valor): ?>
         <tr>
           <td><?= $valor['data']?></td>
-          <td><?= $valor['horario']?></td>
+          <td><?= $valor['paciente']?></td>
           <td><?= $valor['Funcionario']?></td>
-           <td><?= $valor['paciente']?></td>
+           <td><?= $valor['horario']?></td>
         </tr>
     <?php endforeach; ?>
   <?php endif; ?>
-  
+
   </tbody>
 </table>

@@ -10,9 +10,30 @@
 		
 		
 		$resultado = mysqli_query($conexao, $sql);
-
+		
+		if (mysqli_num_rows($resultado) > 0) {
+			$valor1 = 0;
+			foreach ($resultado as $valor) {
+				$valor1 += count($valor['data']);
+			}
 		echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-				<strong>Busca realizada!</strong>
+				<strong>Busca realizada! </strong>Houve ".$valor1." resultado.
+				  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    <span aria-hidden='true'>&times;</span>
+				  </button>
+				</div>";
+		}else{
+			echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+				<strong>Não houve resultados!</strong>
+				  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    <span aria-hidden='true'>&times;</span>
+				  </button>
+				</div>";
+		}
+
+	}elseif(isset($_POST['dataInical']) && empty($_POST['dataInical'])){
+			echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+				<strong>Preencha os campos!</strong>
 				  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 				    <span aria-hidden='true'>&times;</span>
 				  </button>

@@ -34,7 +34,7 @@
             e o status do usuario é ativo
         
         */
-        $sql = "SELECT id_usuario, paciente
+        $sql = "SELECT id_usuario, paciente, Celular, endereco, cep, numero, Telefone, Celular, numero, complemento, bairro, cidade, sexo , estado
                   FROM tb_usuario 
                  WHERE email = '$email' 
                    AND senha = '$senha'";
