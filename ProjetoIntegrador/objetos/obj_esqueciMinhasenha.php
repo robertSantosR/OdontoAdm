@@ -41,7 +41,6 @@
 			$mail->setFrom("odontotopsenac@gmail.com", "Odonto - Redefinir senha");
 			// destinatário
 			$mail->addAddress("robertsantosrrs@gmail.com", "");
-					
 
 			// e-mail no formato HTML
 			 $mail->isHTML(true); 

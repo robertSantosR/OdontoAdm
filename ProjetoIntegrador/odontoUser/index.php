@@ -64,17 +64,6 @@ require_once("./objetos/obj_login.php");
    $mensagem
   </div>";
   ?>
-   <?php 
-  if (isset($_GET['s']) && $_GET['s'] =='y') {
-    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-             <strong>Sucesso!</strong> senha alterada.
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-             </button>
-          </div>';
-  }
-
- ?>
 <form method="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Email/Usuario</label>

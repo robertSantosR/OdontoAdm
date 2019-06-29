@@ -13,7 +13,7 @@ body::after {
 }
 
 nav {
-	background-color: rgba(96,96,217,0.81);
+	background-color: #17a2b8;
 }
 
 nav a {
@@ -39,7 +39,7 @@ footer{
 	margin-top: 20px;
 	border-top: 1px solid #F0F0F0;
 	width: 100%;
-	background-color: rgba(96,96,217,0.81);
+	background-color: #17a2b8;
 	color: #fff;
 	text-align: center;
 	padding: 12px;

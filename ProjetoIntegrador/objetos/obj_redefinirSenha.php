@@ -14,7 +14,13 @@
 				if (mysqli_query($conexao, $sql)) {
 					$sqlUpdate = "UPDATE tb_usuario SET token = null  WHERE  token = '$token'";
 					mysqli_query($conexao, $sqlUpdate);
-					header('Location: ../odontoUser/index.php?s=y');
+					header('refresh:5; url=http://localhost:8081/ProjetoIntegrador/odontoUser/');
+					 echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				             <strong>Sucesso!</strong> senha alterada.
+				             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				                <span aria-hidden="true">&times;</span>
+				             </button>
+				          </div>';
 				}
 
 			}
