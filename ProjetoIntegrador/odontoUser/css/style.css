@@ -44,3 +44,12 @@ footer{
 	text-align: center;
 	padding: 12px;
 }
+.validaBairro{
+	color: red;
+	padding: 3px;
+	border:1px solid red;
+	position: absolute;
+	bottom: -33px;
+	border-radius: 5px;
+	display:none;
+}

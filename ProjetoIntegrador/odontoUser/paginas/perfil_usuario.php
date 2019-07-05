@@ -1,6 +1,7 @@
 <?php 
   require '../objetos/obj_perfil_usuario.php';
 ?>
+
 <h2>Perfil do usuário</h2>
 <form method="POST">
   <div class="form-row">
@@ -13,21 +14,23 @@
      <div class="col-md-4 mb-3">
       <label for="cep">cep</label>
       <input type="text" class="form-control"  id="cep" name="cep" placeholder="EX:11111-1111"  value="<?= $_SESSION['user']['cep'] ?>" required>
+      <span class="validaBairro">Cep não encontrado</span>
     </div>
 
     <div class="col-md-4 mb-3">
       <label for="bairro">Bairro</label>
-      <input type="text" class="form-control" id="bairro" name="bairro" placeholder="EX:jd paulita" value="<?= $_SESSION['user']['bairro'] ?>" required>
+      <input type="text" class="form-control" id="bairro" name="bairro" placeholder="EX:jd paulita" value="<?= $_SESSION['user']['bairro'] ?>" required disabled>
     </div>
     
-  
+ 
    
   </div>
+   <br>
   <div class="form-row">
    <div class="col-md-4 mb-3">
       <label for="estado">estado</label>
       <div class="form-group">
-        <select name="estado" class="form-control" id="estado">
+        <select name="estado" class="form-control" id="estado" disabled>
           <option value="" selected disabled>Selecione um estado</option>
           <option value="AC"  <?php if($_SESSION['user']['estado'] == "AC"){ echo "selected";} ?> >Acre</option>
           <option value="AL"  <?php if($_SESSION['user']['estado'] == "AL"){ echo "selected";} ?>>Alagoas</option>
@@ -61,18 +64,18 @@
     </div>
    
       <div class="col-md-4 mb-3">
-      <label for="cidade">Cidade</label>
+      <label for="cidade" >Cidade</label>
       <div class="input-group">
         <div class="input-group-prepend">
         </div>
-        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="EX:São paulo" aria-describedby="inputGroupPrepend2" value="<?= $_SESSION['user']['cidade'] ?>" >
+        <input type="text" class="form-control" disabled  id="cidade" name="cidade" placeholder="EX:São paulo" aria-describedby="inputGroupPrepend2" value="<?= $_SESSION['user']['cidade'] ?>" >
       </div>
     </div>
 
 
     <div class="col-md-4 mb-3">
-      <label for="endereco">Endereço</label>
-      <input type="text" class="form-control"  id="endereco" name="endereco" placeholder="EX:rua damiao.." value="<?= $_SESSION['user']['endereco'] ?>" required>
+      <label for="endereco" >Endereço</label>
+      <input type="text" class="form-control"  disabled id="endereco" name="endereco" placeholder="EX:rua damiao.." value="<?= $_SESSION['user']['endereco'] ?>" required>
     </div>
 
     
@@ -150,3 +153,4 @@
 <br>
 
 <hr>
+<script type="text/javascript" src="../js/script.js"></script>

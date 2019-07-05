@@ -62,6 +62,6 @@ if(isset($_POST['dentista']) &&  !empty($_POST['dentista']) ){
 		
 }
 	
-	
+mysqli_close($conexao);
 ?>
 

@@ -61,7 +61,7 @@ if(isset($_GET['v']) == 'ok'){
 		}
 		
 
-		mysqli_close($conexao);
+		
 ?>
 
 				  </tbody>

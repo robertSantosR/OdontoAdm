@@ -43,7 +43,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=cadUser"; ?>">Cadastrar Cliente</a>
-            
+            <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=consutarUsuarios"; ?>">Consutar usuários</a>    
           </div>
         <li class="nav-item">
          
@@ -53,7 +53,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=cadFunc"; ?>">Cadastrar Colaborador</a>
-            <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=consFunc"; ?>">Consultar Colaborador</a>
+            <a class="dropdown-item" href="<?php echo $_SERVER["PHP_SELF"]."?pagina=consFunc"; ?>">Consultar Colaborador</a>      
           </div>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,6 +88,9 @@
           include("./cadFunc.php");
           break;
 		 
+     case "consutarUsuarios":
+          include("./consutarUsuarios.php");
+          break;
 		  case"relatorio":
 		  include("./relatorio.php");
 		  break;

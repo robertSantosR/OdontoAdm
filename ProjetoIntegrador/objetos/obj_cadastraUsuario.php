@@ -27,7 +27,6 @@
 				$complemento = addslashes($_POST['complemento']);
 				$estado = addslashes($_POST['estados']);
 				$dataNascimento = addslashes($_POST['data']);
-				$dataNascimento = str_replace('/', '-',  $dataNascimento);
 				$cidade = addslashes($_POST['cidade']);
 				
 				//STR_TO_DATE JA FAZ ISSO!
@@ -35,21 +34,22 @@
 			    $telefone= addslashes($_POST['telefone']);
 				$celular = addslashes($_POST['celular']);
 
-				$sqlInsert = "INSERT INTO tb_usuario(email,senha,cpf,Telefone,Celular,paciente,data_nascimento,endereco, cep, numero, complemento, bairro, sexo, estado, cidade) VALUES('$email', '$senha', '$cpf', '$telefone', '$celular', '$nome', STR_TO_DATE('$dataNascimento','%d-%m-%Y'), '$endereco', '$cep', '$numero', '$complemento', '$bairro', '$sexo', '$estado', '$cidade')";	
-			
+				$sqlInsert = "INSERT INTO tb_usuario(email,senha,cpf,Telefone,Celular,paciente,data_nascimento,endereco, cep, numero, complemento, bairro, sexo, estado, cidade) VALUES('$email', '$senha', '$cpf', '$telefone', '$celular', '$nome', STR_TO_DATE('$dataNascimento','%Y-%m-%d'), '$endereco', '$cep', '$numero', '$complemento', '$bairro', '$sexo', '$estado', '$cidade')";	
+				
 				if (mysqli_query($conexao,$sqlInsert)) {
 					echo "<div class='alert alert-success' role='alert'>
 			 			<strong>Sucesso</strong> email cadastrado!
 					</div>";
 				}else{
 					echo "<div class='alert alert-danger' role='alert'>
-			 			<strong>Erro</strong> Houve algum !
-					</div>";
+			 			Houve algum erro !
+					</div> <br>";
+					echo $sqlInsert;
 				}
 		
 		
 		}
-
+		mysqli_close($conexao);
 	}else if(isset($_POST['email']) && empty($_POST['email'])){
 			echo "<div class='alert alert-danger' role='alert'>
 			 			<strong>Erro</strong> Preencha os campos!
@@ -57,5 +57,4 @@
 	}
 
 
-	
 ?>

@@ -16,7 +16,7 @@
 <header>
   <nav class="navbar navbar-expand-lg  fixed-top " >
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span><i class="fas fa-align-justify"></i></span> </button>
-    <a class="navbar-brand" href="index.html">Odonto</a>
+    <a class="navbar-brand" href="index.php">Odonto</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
         <li class="nav-item active"> <a class="nav-link" href="index.php">Home</a> </li>
@@ -55,11 +55,12 @@
 
       <div class="carousel-item"> <img src="assets/img/dentista2.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-         
+          <h2>Venha cuidar do seu sorriso conosco!</h2>
         </div>
       </div>
       <div class="carousel-item"> <img src="assets/img/dentista.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
+           <h2 style="color:#17a2b8;">Venha cuidar do seu sorriso conosco!</h2>
         </div>
       </div>
      <div class="carousel-item"> <img src="assets/img/Logo.jpg" height="640" class="d-block w-100" alt="...">
@@ -115,10 +116,11 @@
                         <div id="senhaForca" class="progress-bar progress-bar bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
                         </div>
                     </div>
+                    <span class="validaBairro">Senhas precisam ser iguais!</span>
                     </div>
                     <div class="col-md-6">
                       <label for="senha"></label>
-                      <input type="password" class="form-control" id="senha" name="senha" placeholder="Confirma senha">
+                      <input type="password"  class="form-control" id="confirmaSenha" name="senha" placeholder="Confirma senha">
                     </div>
                 </div>
               </div>
@@ -130,8 +132,11 @@
                     <input type="text" class="form-control " id="cpf" name="cpf" placeholder="cpf...">
                   </div>
                   <div class="col-md-4">
+
                     <label for="data"></label>
-                    <input type="text" class="form-control" id="data"  name="data" placeholder="Data de Nascimento ">
+                    <input type="date" class="form-control" id="data" min="1922-01-01" name="data">
+                    <small id="emailHelp" class="form-text text-muted">Data de nascimento</small>
+
                   </div>
                    <div class="col-md-3">
                     <label id="sexo"></label>
@@ -162,11 +167,13 @@
                   <div class="col-md-6">
                     <label for="cep"></label>
                     <input type="text" class="form-control" id="cep" name="cep" placeholder="cep ">
+                    <span class="validaBairro">Cep não encontrado</span>
                   </div>
                   
                   <div class="col-md-6">
                     <label for="bairro"></label>
-                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="bairro ">
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="bairro" disabled>
+
                   </div>
                 </div>
               </div>
@@ -175,11 +182,11 @@
                 <div class="row">
                   <div class="col-md-8">
                     <label for="endereco"></label>
-                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="endereco ">  
+                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="endereco " disabled>  
                   </div>
                    <div class="col-md-4">
                     <label for="cidade"></label>
-                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="cidade ">  
+                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="cidade " disabled>  
                   </div>
                 </div>
               </div>
@@ -188,7 +195,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <label for="numero"></label>
-                    <input type="text" class="form-control" id="numero" name="numero" placeholder="número ">
+                    <input type="text" class="form-control" id="numero" name="numero" placeholder="número " >
                   </div>
                   <div class="col-md-4">
                     <label for="complemento"></label>
@@ -196,7 +203,7 @@
                   </div>
                   <div class="col-md-4">
                      <label for="estados"></label>
-                      <select class="form-control" id="estados" name="estados">
+                      <select class="form-control" id="estados" name="estados" disabled>
                         <option value="" disabled selected hidden>Estados</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -283,16 +290,6 @@
               </li>
             </ul>
             <p><i>Os procedimentos são feitos por um clínico geral.</i></p>
-              <br><br>
-             <div id="contatos">
-              <h3 class="text-info">Contatos</h3>
-              <strong>Contatos: (11) 3224-7378 <i class="fab fa-whatsapp"></i><br>
-               (31) 98623-9711 <i class="fas fa-phone"></i><br>
-                (11) 3284-3223 <i class="fas fa-phone"></i></strong>
-               <br><br>
-               <p>Onde somos encontrados!</p>
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.766339920387!2d-46.77461388487014!3d-23.61271146937607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5443d07c0669%3A0xb8422f47f59e5cf8!2sSenac+Tabo%C3%A3o+da+Serra!5e0!3m2!1spt-BR!2sbr!4v1561768596994!5m2!1spt-BR!2sbr" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
           </div>
 
            
@@ -316,11 +313,28 @@
         <p>Formada pela UNIPLAC, do Distrito Federal, desde 2004, atua nas áreas de clareamento dental e restaurações estéticas..</p>
 
         
-  
+  </div>
     
         </div>
-        
-    
+
+        <div class="row">
+          <div class="col-md-12">
+             <div id="contatos">
+                <h3 class="text-info ">Contatos</h3>
+               
+                <strong>Contatos: (11) 3224-7378 <i class="fab fa-whatsapp"></i><br>
+                 (31) 98623-9711 <i class="fas fa-phone"></i><br>
+                  (11) 3284-3223 <i class="fas fa-phone"></i><br>
+                  odontotopsenac@gmail.com <i class="fas fa-envelope"></i>
+                </strong>
+                 <br><br>
+                 </div>
+                 <p>Onde somos encontrados!</p>
+                
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.766339920387!2d-46.77461388487014!3d-23.61271146937607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5443d07c0669%3A0xb8422f47f59e5cf8!2sSenac+Tabo%C3%A3o+da+Serra!5e0!3m2!1spt-BR!2sbr!4v1562021350384!5m2!1spt-BR!2sbr" width="900" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+               
+          </div>
+        </div>
     </article>
  
     

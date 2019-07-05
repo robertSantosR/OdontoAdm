@@ -1,7 +1,21 @@
 $(document).ready(function() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	 if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("data").setAttribute("max", today);
+
  	carousel();  
+ 	$('#cep').mask('00000-000');
 	
-	$('#data').mask('00/00/0000');
 	  $('#telefone').mask('(00) 00000000');
 	  $('#celular').mask('(00) 000000000');
 	  $('#cpf').mask('000.000.000-00');
@@ -20,6 +34,7 @@ $(document).ready(function() {
 			
 		}
 	});
+
 	
 	$('#senha').blur(function(){
 			if(!$(this).val()){
@@ -27,7 +42,7 @@ $(document).ready(function() {
 			
 			}else if($(this).val()){
 				$(this).css('border','');
-				
+				$('.validaBairro').fadeOut(1000);		
 			}
 		});
 
@@ -40,6 +55,47 @@ $(document).ready(function() {
 			
 		}
 	});
+	$('#cep').blur(function(){
+		var cep = $(this).val();
+		$('#bairro').val('');
+		$('#endereco').val('');
+		$('#cidade').val('');
+		$('#estados').val('');
+		if (cep) {
+			$(this).css('border','');
+			$.getJSON('https://viacep.com.br/ws/'+ cep +'/json/',function(json){
+				if (!('erro' in json)) {
+					$('#bairro').val(json.bairro);
+					$('#endereco').val(json.logradouro);
+					$('#cidade').val(json.localidade);
+					$('#estados').val(json.uf);
+					$('.validaBairro').fadeIn(1000);
+					$('#bairro').prop( "disabled", true );
+					$('#endereco').prop( "disabled", true );
+					$('#cidade').prop( "disabled", true );
+					$('#estados').prop( "disabled", true );
+					$('.validaBairro').fadeOut(1000);
+				}else{
+					$('.validaBairro').fadeIn(1000);
+					$('#bairro').prop( "disabled", false );
+					$('#endereco').prop( "disabled", false );
+					$('#cidade').prop( "disabled", false );
+					$('#estados').prop( "disabled", false );
+
+				}
+			})
+			.fail(function() {
+   		 		$('.validaBairro').fadeIn(1000);
+   		 	    $('#bairro').prop( "disabled", true );
+				$('#endereco').prop( "disabled", true );
+				$('#cidade').prop( "disabled", true );
+				$('#estados').prop( "disabled", true );
+	  		});
+  		}else{
+  			$(this).css('border','1px solid red');
+  		} 
+	});
+
 	$('#nome').blur(function(){
 		if(!$(this).val()){
 			$(this).css('border','1px solid red');
@@ -49,6 +105,7 @@ $(document).ready(function() {
 			
 		}
 	});
+
 	$('#data').blur(function(){
 		if(!$(this).val() || $(this).val().length < 10){
 			$(this).css('border','1px solid red');
@@ -76,12 +133,29 @@ $(document).ready(function() {
 			$('#email').css('border','1px solid red');	
 			cont++
 		}
+		if ($('#senha').val() != $('#confirmaSenha').val()) {
+			cont++
+			$('#senha').css('border','1px solid red');
+			$('.validaBairro').fadeIn(1000);
+
+		}
 
 		if(!$('#cpf').val()){
 			$('#cpf').css('border','1px solid red');	
 			cont++
 		}
-
+		if(!$('#complemento').val()){
+			$('#complemento').css('border','1px solid red');	
+			cont++
+		}
+			if(!$('#numero').val()){
+			$('#numero').css('border','1px solid red');	
+			cont++
+		}
+		if(!$('#cep').val()){
+			$('#cep').css('border','1px solid red');	
+			cont++
+		}
 		if(!$('#senha').val()){
 			$('#senha').css('border','1px solid red');	
 			cont++
@@ -104,9 +178,14 @@ $(document).ready(function() {
 			cont++
 		}
 		if(cont > 0){
-			alert('campos obrigatorio! mudo');
+			alert('campos obrigatorio!');
 			return false
 		}
+		$('#bairro').prop( "disabled", false );
+		$('#endereco').prop( "disabled", false );
+		$('#cidade').prop( "disabled", false );
+		$('#estados').prop( "disabled", false );
+
 	
 	});
 	

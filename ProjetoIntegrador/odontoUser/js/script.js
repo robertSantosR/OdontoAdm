@@ -1,108 +1,57 @@
 $(document).ready(function(){
-	$('#data').mask("00/00/0000");
+	$('#cep').mask('00000-000');
+	$('#cep').blur(function(){
+		var cep = $(this).val();
+		$('#bairro').val('');
+		$('#endereco').val('');
+		$('#cidade').val('');
+		$('#estado').val('');
+		if (cep) {
+		$(this).css('border','');
+		$.getJSON('https://viacep.com.br/ws/'+ cep +'/json/',function(json){
+			if (!('erro' in json)) {
+				$('#bairro').val(json.bairro);
+				$('#endereco').val(json.logradouro);
+				$('#cidade').val(json.localidade);
+				$('#estado').val(json.uf);
 
-	
-	$('#hora').change(function(){
-		if($(this).val() == 0){
-			$(this).css({
-				border:"1px solid red"
-				
-			});
-			
+				$('.validaBairro').fadeIn(1000);
+
+				$('#bairro').prop( "disabled", true );
+				$('#endereco').prop( "disabled", true );
+				$('#cidade').prop( "disabled", true );
+				$('#estado').prop( "disabled", true );
+				$('.validaBairro').fadeOut(1000);
+			}else {
+  				$('.validaBairro').fadeIn(1000);
+				$('#bairro').prop( "disabled", false );
+				$('#endereco').prop( "disabled", false );
+				$('#cidade').prop( "disabled", false );
+				$('#estado').prop( "disabled", false );
+			}
+		})
+		.fail(function(){
+			$('.validaBairro').fadeIn(1000);
+			$('#bairro').prop( "disabled", true );
+			$('#endereco').prop( "disabled", true );
+			$('#cidade').prop( "disabled", true );
+			$('#estado').prop( "disabled", true );
+		});
 		}else{
-			$(this).css('border','');
+			$(this).css('border','1px solid red');
 		}
 	});
-	
-	$('#data').blur(function(){
-		
-		
-		if(!$(this).val()){
-			$(this).css({
-				border:"1px solid red"
-		
-			});
-			
-		}else{
-			$(this).css('border','');
-		}
-	});
-	
-	$('#nomeDen').change(function(){
-		if($(this).val() == 0){
-			$(this).css({
-				border:"1px solid red"
-				
-			});
-			
-		}else{
-			$(this).css('border','');
-		}
-	})
-	
-	
+	$(':submit:eq(0)').click(function(){
 
-	
-
-
-	
-	
-});
-
-$('#enviar').click(function(){
-		var cont = 0; 
-		if(!$('#data').val()){
-			$('#data').css({
-				border:"1px solid red"
-			});
-			cont++
-		}
-			
-		if($('#hora').val() == 0){
-			$('#hora').css({
-				border:"1px solid red"
-				
-			});
-			cont++
-		}
-		nomeDen
-		if($('#hora').val() == 0){
-			$('#hora').css({
-				border:"1px solid red"
-				
-			});
-			cont++
-		}
-		if($('#nomeDen').val() == 0){
-			$('#nomeDen').css({
-				border:"1px solid red"
-				
-			});
-			cont++
-		}
-		if(cont > 0){
+		if (!$('#nome').val()) {
+			$(this).css('border','1px solid red');
 			return false;
 		}else{
-			var data = $('#data').val();
-			var hora = $('#hora').val();
-			var dentistaNome = $('#nomeDen ').find('option:selected').text();
-			var dentista = $('#nomeDen ').val();
-			$('#adicionar tbody').append('<tr class="t"><td><input type="hidden" name="data[]" value="'+data+'">'+data+'</td>  <td><input type="hidden" name="hora[]" value="'+hora+'">'+hora+'</td><td><input type="hidden" name="dentista[]" value="'+dentista+'">'+dentistaNome+' </td></tr>');
+			$(this).css('border','');
+			$('#bairro').prop( "disabled", false );
+			$('#endereco').prop( "disabled", false );
+			$('#cidade').prop( "disabled", false );
+			$('#estado').prop( "disabled", false );
 		}
-		
-
+	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-	

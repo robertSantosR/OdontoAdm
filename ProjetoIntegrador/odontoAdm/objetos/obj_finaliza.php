@@ -4,7 +4,7 @@
 		$conexao = AbreConexaoBd();
 		
 		$id = addslashes($_GET['id']);
-		$sql = "UPDATE tb_agendadent SET tp_status = 1 WHERE id_agenda = $id" ;
+		$sql = "UPDATE tb_agendadent SET tp_status = 3 WHERE id_agenda = $id" ;
 		
 		echo $sql;
 		 if(mysqli_query($conexao, $sql)){
@@ -14,5 +14,5 @@
 		
 		
 	}
-
+	mysqli_close($conexao);
 ?>

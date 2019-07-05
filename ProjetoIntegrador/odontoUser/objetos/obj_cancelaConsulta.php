@@ -9,6 +9,7 @@
 		if (mysqli_query($conexao, $sql)) {
 		 	header("location: ../paginas/navegacao.php?pagina=consUser&m=ok");
 		 }
+		 mysqli_close($conexao);
 	 } 
 
 ?>

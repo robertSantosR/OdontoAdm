@@ -50,6 +50,6 @@ if((isset($_POST['email']) && !empty($_POST['email'])) &&(isset($_POST['senha'])
 	retornaErro('Campo obrigatorio');
 }
 
-
+mysqli_close($conexao);
    
 ?>

@@ -40,7 +40,7 @@
 			// remetente
 			$mail->setFrom("odontotopsenac@gmail.com", "Odonto - Redefinir senha");
 			// destinatário
-			$mail->addAddress("robertsantosrrs@gmail.com", "");
+			$mail->addAddress("$email", "");
 
 			// e-mail no formato HTML
 			 $mail->isHTML(true); 
@@ -76,4 +76,5 @@
 		}
 
 	}
+mysqli_close($conexao);
 ?>

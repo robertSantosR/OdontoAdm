@@ -16,8 +16,9 @@
 		 $estado = $_POST['estado'];
 		 $id =$_SESSION["user"]["id_usuario"];
 
-		 $sql = "UPDATE tb_usuario SET paciente = '$nome', endereco = '$endereco', bairro = '$bairro', estado = '$estado' ,cep = ' $cep', cidade='$cidade', numero = '$numero', complemento = ' $complemento', sexo = '$sexo',Celular='$celular',Telefone = '$telefone' WHERE id_Usuario = $id";
 
+
+		 $sql = "UPDATE tb_usuario SET paciente = '$nome', endereco = '$endereco', bairro = '$bairro', estado = '$estado' ,cep = ' $cep', cidade='$cidade', numero = '$numero', complemento = ' $complemento', sexo = '$sexo',Celular='$celular',Telefone = '$telefone' WHERE id_Usuario = $id";
 		 
 		 if (mysqli_query($conexao, $sql)) {
 		 	echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -33,13 +34,14 @@
 		 	    <span aria-hidden="true">&times;</span>
 		 	  </button>
 		 	</div>';
-		 }
-	}elseif (isset($_POST['nome']) && empty($_POST['nome'])) {
-		echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-		 	  <strong>erro!</strong> Preencha os campos.
-		 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		 	    <span aria-hidden="true">&times;</span>
-		 	  </button>
-		 	</div>';
-	}
+		}
+		mysqli_close($conexao);
+		}elseif (isset($_POST['nome']) && empty($_POST['nome'])) {
+			echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			 	  <strong>erro!</strong> Preencha os campos.
+			 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			 	    <span aria-hidden="true">&times;</span>
+			 	  </button>
+			 	</div>';
+		}
 ?>

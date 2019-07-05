@@ -66,7 +66,7 @@
         }
         else{
             //atribui mensagem de usuário inexistente
-            $mensagem = "Login ou senha inválido!";
+            $mensagem = "Login ou senha inválido! ".mysqli_error($conexao);
             }
         // fecha a conexao aberta para validar o usuário no banco de dados
         mysqli_close($conexao);

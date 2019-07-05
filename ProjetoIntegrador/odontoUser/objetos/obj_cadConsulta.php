@@ -14,7 +14,7 @@
 			header('location:../paginas/navegacao.php?pagina=consUser&v=ok');
 					
 		}
-			
+		mysqli_close($conexao);	
 	}
 
 

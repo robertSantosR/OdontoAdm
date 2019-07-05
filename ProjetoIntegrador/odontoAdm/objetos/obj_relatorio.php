@@ -39,5 +39,5 @@
 				  </button>
 				</div>";
 	}
-
+	mysqli_close($conexao);
 ?>

@@ -31,5 +31,6 @@ require_once("../objetos/obj_conexao_bd.php");
 					  
 		$resultado = mysqli_query($conexao,$sql);
 		
-}
+	}
+	mysqli_close($conexao);
 ?>

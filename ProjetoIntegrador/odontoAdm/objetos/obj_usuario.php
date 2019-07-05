@@ -54,6 +54,6 @@ if((isset($_POST["nome"]) && !empty($_POST["nome"])) && (isset($_POST["email"]) 
 	}
 
       
-
+mysqli_close($conexao);
 
 ?>

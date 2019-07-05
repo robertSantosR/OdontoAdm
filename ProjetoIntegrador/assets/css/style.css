@@ -41,7 +41,6 @@ footer{
 	height:120px; 
 	margin-top: 20px;
 	border-top: 1px solid #F0F0F0;
-	width: 100%;
 	background-color: #17a2b8;;
 	color: #fff;
 	text-align: center;
@@ -128,6 +127,16 @@ article h3{
 	
 }
 
+.validaBairro{
+	color: red;
+	padding: 3px;
+	border:1px solid red;
+	position: absolute;
+	bottom: -33px;
+	border-radius: 5px;
+	display:none;
+
+}
 article ul div {
     display: none;
 	background-color: #FCFCFC;
