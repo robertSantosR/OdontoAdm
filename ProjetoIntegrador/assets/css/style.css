@@ -137,6 +137,17 @@ article h3{
 	display:none;
 
 }
+#confimaNovaSenha{
+	margin-bottom: 10px;
+}
+.validaSenha{
+	color: red;
+	padding: 3px;
+	border:1px solid red;
+	border-radius: 5px;
+	display: none;
+}
+
 article ul div {
     display: none;
 	background-color: #FCFCFC;

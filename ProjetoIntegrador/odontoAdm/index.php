@@ -78,7 +78,7 @@ require_once("./objetos/obj_login.php");
   <div class="form-group form-check">
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
-  <a href="../paginas/esqueciMinhasenha.php" class="btn btn-primary">Esqueci minha senha</a>
+ 
 
 </form>
 

@@ -5,6 +5,25 @@
 	<title>Esqueci minha senha</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="../assets/css/style.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.4.0.min.js"
+	  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+	  crossorigin="anonymous"></script> 
+	<script type="text/javascript">
+		$(function(){
+			$('#enviarSenha').click(function(){
+				if (!$('#novaSenha').val()){
+					$('#novaSenha').css('border','1px solid red');
+					return false;
+				}			
+				if ($('#novaSenha').val() != $('#confimaNovaSenha').val()){
+					$('.validaSenha').fadeIn(1000);
+					return false;	
+				}
+			});
+			
+		});
+	</script>
 </head>
 <body>
 <header>
@@ -35,10 +54,11 @@
 		  	<div class="row">
 		  		<div class="col-8" style="margin: auto">
 				    <label for="senha">nova senha</label>
-				    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite um senha">
+				    <input type="password" class="form-control" id="novaSenha" name="senha" placeholder="Digite um senha">
 				    <label for="confimaSenha">Confirma senha</label>
-				    <input type="password" class="form-control" id="confimaSenha" name="confimaSenha" placeholder="Digite a senha novamente"><br>
-				  <button type="submit" class="btn btn-dark">Confirmar</button>
+				    <input type="password" class="form-control" id="confimaNovaSenha" name="confimaSenha" placeholder="Digite a senha novamente"><span class="validaSenha">Senha precisa ser igual!</span><br><br>	
+
+				  <button type="submit" id="enviarSenha" class="btn btn-dark">Confirmar</button>
 			  	</div> 
 		    </div>
 			<hr>

@@ -26,13 +26,19 @@ if((isset($_POST["nome"]) && !empty($_POST["nome"])) && (isset($_POST["email"]) 
 	$cep = $_POST["cep"];
 	$end = $_POST["end"];
 	$num = $_POST["num"];
+  $bairro = $_POST['bairro'];
+  $cidade = $_POST['cidade'];
+  $estado = $_POST['estados'];
+  $sexo = $_POST['sexo'];
+  $telefone = $_POST['telefone'];
+
 	$senha = md5($_POST['senha']);
 	//$dtNasc = $_POST["dtNasc"];
 	
 	$complemento = $_POST["complemento"];
      
-	$sqlInsert = "INSERT INTO tb_usuario(paciente,email,cpf,celular,cep,endereco,numero,complemento,telefone,senha) 
-                  VALUES('$nome','$email','$cpf','$celular','$cep ','$end','$num','$complemento','112314','$senha')";
+	$sqlInsert = "INSERT INTO tb_usuario(paciente,email,cpf,celular,cep,endereco,numero,complemento,telefone,senha, bairro, cidade, estado, sexo) 
+                  VALUES('$nome','$email','$cpf','$celular','$cep ','$end','$num','$complemento','$telefone','$senha', '$bairro', '$cidade', '$estado', '$sexo')";
 	
 	
 

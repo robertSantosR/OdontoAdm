@@ -15,12 +15,11 @@ $(document).ready(function() {
 
  	carousel();  
  	$('#cep').mask('00000-000');
-	
-	  $('#telefone').mask('(00) 00000000');
-	  $('#celular').mask('(00) 000000000');
-	  $('#cpf').mask('000.000.000-00');
-	 $('a').click(function(){  
-   $('html, body').animate({  
+	$('#telefone').mask('(00) 00000000');
+	$('#celular').mask('(00) 000000000');
+	$('#cpf').mask('000.000.000-00');
+	$('a').click(function(){  
+    $('html, body').animate({  
      scrollTop: $( $(this).attr('href') ).offset().top  
    }, 1500);  
    return false;  
@@ -33,6 +32,7 @@ $(document).ready(function() {
 			$(this).css('border','');
 			
 		}
+
 	});
 
 	
@@ -124,6 +124,9 @@ $(document).ready(function() {
 			
 		}
 	});
+
+	
+});
 	
 	$('#cadastra').click(function(){
 		
@@ -227,7 +230,7 @@ $(document).ready(function() {
 
 	function forcaSenha(senha){
     var forca = 0;
-    
+   
     var regLetrasMa     = /[A-Z]/;
     var regLetrasMi     = /[a-z]/;
     var regNumero       = /[0-9]/;
